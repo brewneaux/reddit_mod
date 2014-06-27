@@ -32,14 +32,16 @@ function getHash(callback) {
 }
 
 function generateToolbar () {
+	$(document).find('#header')[0].style.marginTop='26px';
     var newToolbar = document.createElement("div");
 	newToolbar.id = "newToolbar";
 	document.body.insertBefore(newToolbar,document.body.firstChild);
 	var subredditbar = document.getElementById('sr-header-area');
-	newToolbar.style.cssText = document.defaultView.getComputedStyle(subredditbar).cssText;
+	newToolbar.style.cssText="border-bottom:1px solid gray;color:black;background:none 0% 0% / auto repeat scroll padding-box border-box rgb(240, 240, 240);font-family:verdana, arial, helvetica, sans-serif;font-size:12px;height:18px;padding:3px 0px 3px 6px;text-transform:uppercase;width:100%;z-index:+999999;position:fixed;top:0;a";
 	newToolbar.style.paddingLeft = '6px';
     newToolbar.style.paddingTop = '3px';
     newToolbar.style.paddingBottom = '3px';
+    newToolbar.style.top='0px';
 	if (commentPage.length == 0) {
 		newToolbar.innerHTML += " <a id=reportComment href='#'>REPORT POSTS</a> ";
 	}
