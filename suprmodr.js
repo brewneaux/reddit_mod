@@ -3,7 +3,10 @@
 // @description Reddit Moderator(?) script. Parts and idea by /u/noeatnosleep, enhanced by /u/enim
 // @include http://www.reddit.com/user/*
 // @include http://www.reddit.com/r/*
+// @require http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // ==/UserScript==
+
+this.$ = this.jQuery = jQuery.noConflict(true);
 
 var currentPage = document.URL;
 var parsedPage = currentPage.split('/');
@@ -204,4 +207,4 @@ function reportToSpam(){
 	window.open('http://www.reddit.com/submit?url=' + currentPage);
 }
 
-generateToolbar(), getHash(),buildReportArray(), doStuff()
+generateToolbar(), getHash(),buildReportArray(), doStuff();
