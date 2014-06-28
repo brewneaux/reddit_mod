@@ -3,6 +3,7 @@
 // @description Reddit Moderator(?) script. Parts and idea by /u/noeatnosleep, enhanced by /u/enim
 // @include http://www.reddit.com/user/*
 // @include http://www.reddit.com/r/*
+// @include http://*reddit.com/*
 // @require http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // ==/UserScript==
 
@@ -35,26 +36,27 @@ function getHash(callback) {
 }
 
 function generateToolbar () {
-	$(document).find('#header')[0].style.marginTop='26px';
+	$(document).find('#header')[0].style.paddingTop='18px';
     var newToolbar = document.createElement("div");
 	newToolbar.id = "newToolbar";
 	document.body.insertBefore(newToolbar,document.body.firstChild);
 	var subredditbar = document.getElementById('sr-header-area');
-	newToolbar.style.cssText="border-bottom:1px solid gray;color:black;background:none 0% 0% / auto repeat scroll padding-box border-box rgb(240, 240, 240);font-family:verdana, arial, helvetica, sans-serif;font-size:12px;height:18px;padding:3px 0px 3px 6px;text-transform:uppercase;width:100%;z-index:+999999;position:fixed;top:0;a";
+	newToolbar.style.cssText="color:black;background-color:'#f0f0f0';border-bottom:1px black solid;font-family:verdana, arial, helvetica, sans-serif;font-size:90%;height:12px;padding:3px 0px 3px 6px;text-transform:uppercase;width:100%;z-index:+999999;position:fixed;top:0;";
+	newToolbar.style.backgroundColor='#f0f0f0';
 	newToolbar.style.paddingLeft = '6px';
     newToolbar.style.paddingTop = '3px';
     newToolbar.style.paddingBottom = '3px';
     newToolbar.style.top='0px';
+    newToolbar.innerHTML += "<a id='downvoteComment' style='color:black;' href='#'>DOWNVOTER</a> | <a id='upvoteComment' style='color:black;' href='#'>UPVOTER</a> |";
 	if (commentPage.length == 0) {
-		newToolbar.innerHTML += " <a id=reportComment href='#'>REPORT POSTS</a> ";
+		newToolbar.innerHTML += " <a id=reportComment style='color:black;' href='#'>REPORT POSTS</a> ";
 	}
 	else {
-		newToolbar.innerHTML += "<a id=reportComment href='#'>REPORT COMMENTS</a> ";	
+		newToolbar.innerHTML += "<a id=reportComment style='color:black;' href='#'>REPORT COMMENTS</a> ";	
 	}
 	if (parsedPage[3] == 'user'){
-		newToolbar.innerHTML += "<a id='upvoteAndOpen' href='#'> | UPVOTE AND OPEN </a> <a id='downvoteAndOpen' href='#'> | DOWNVOTE AND OPEN </a> <a id='reportUserToSpam' href='#'> | REPORT ON /R/SPAM </a>";
+		newToolbar.innerHTML += "<a id='upvoteAndOpen' style='color:black;' href='#'> | UPVOTE AND OPEN </a> <a id='downvoteAndOpen' style='color:black;' href='#'> | DOWNVOTE AND OPEN </a> <a id='reportUserToSpam' style='color:black;' href='#'> | REPORT ON /R/SPAM </a>";
 	}
-	newToolbar.innerHTML += "| <a id='downvoteComment' href='#'>DOWNVOTER</a> | <a id='upvoteComment' href='#'>UPVOTER</a> ";
  }
 
 
